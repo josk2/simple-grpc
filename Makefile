@@ -1,4 +1,8 @@
-.PHONY: gen_protoc_server
+.PHONY: gen_protoc_server install_grpc_package
+
+
+install_grpc_package:
+	go get -u google.golang.org/grpc
 
 gen_protoc_server:
 	protoc --go_out=. --go_opt=paths=source_relative \
