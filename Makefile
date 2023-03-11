@@ -1,10 +1,10 @@
-.PHONY: gen_protoc_server install_grpc_package
+.PHONY: gen_protoc_helloworld install_grpc_package
 
 
 install_grpc_package:
 	go get -u google.golang.org/grpc
 
-gen_protoc_server:
+gen_protoc_helloworld:
 	protoc --go_out=. --go_opt=paths=source_relative \
         --go-grpc_out=. --go-grpc_opt=paths=source_relative \
-        protoc/greeter.proto
+        protoc/helloworld/greeter.proto
