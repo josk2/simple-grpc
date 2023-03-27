@@ -5,16 +5,16 @@ import (
 	"fmt"
 	"log"
 
-	pb "simplegrpc/protoc/helloworld"
+	"simplegrpc/helloworld/protoc"
 )
 
 type server struct {
-	pb.UnimplementedGreeterServer
+	protoc.UnimplementedGreeterServer
 }
 
-func (s *server) SayHello(ctx context.Context, in *pb.HelloRequest) (*pb.HelloReply, error) {
+func (s *server) SayHello(ctx context.Context, in *protoc.HelloRequest) (*protoc.HelloReply, error) {
 	log.Printf("Received: %v", in.GetName())
 
-	rep := pb.HelloReply{Message: fmt.Sprintf("Hello %s", in.GetName())}
+	rep := protoc.HelloReply{Message: fmt.Sprintf("Hello %s", in.GetName())}
 	return &rep, nil
 }

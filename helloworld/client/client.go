@@ -8,7 +8,7 @@ import (
 	"sync"
 	"time"
 
-	pb "simplegrpc/protoc/helloworld"
+	"simplegrpc/helloworld/protoc"
 
 	"google.golang.org/grpc"
 	"google.golang.org/grpc/credentials/insecure"
@@ -29,7 +29,7 @@ func main() {
 	}
 	defer conn.Close()
 
-	c := pb.NewGreeterClient(conn)
+	c := protoc.NewGreeterClient(conn)
 	ctx, cancel := context.WithTimeout(context.Background(), time.Second)
 	defer cancel()
 
@@ -46,8 +46,8 @@ func main() {
 
 }
 
-func doSayHello(ctx context.Context, c pb.GreeterClient, wg *sync.WaitGroup, num int) {
-	r, err := c.SayHello(ctx, &pb.HelloRequest{Name: fmt.Sprintf("#%d", num)})
+func doSayHello(ctx context.Context, c protoc.GreeterClient, wg *sync.WaitGroup, num int) {
+	r, err := c.SayHello(ctx, &protoc.HelloRequest{Name: fmt.Sprintf("#%d", num)})
 	if err != nil {
 		log.Fatalf("could not gree %v", err)
 	}
