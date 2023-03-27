@@ -7,4 +7,4 @@ install_grpc_package:
 gen_protoc_helloworld:
 	protoc --go_out=. --go_opt=paths=source_relative \
         --go-grpc_out=. --go-grpc_opt=paths=source_relative \
-        protoc/helloworld/greeter.proto
+        helloworld/protoc/greeter.proto
