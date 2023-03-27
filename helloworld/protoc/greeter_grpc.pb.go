@@ -4,7 +4,7 @@
 // - protoc             v3.19.4
 // source: helloworld/protoc/greeter.proto
 
-package helloworld
+package protoc
 
 import (
 	context "context"

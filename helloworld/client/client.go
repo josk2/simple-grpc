@@ -42,7 +42,9 @@ func main() {
 	}
 
 	wg.Wait()
-	fmt.Println("Done")
+	fmt.Println("Round 1 done. Waiting send again")
+	doSayAgain(ctx, c)
+	fmt.Println("DONE")
 
 }
 
@@ -53,4 +55,12 @@ func doSayHello(ctx context.Context, c protoc.GreeterClient, wg *sync.WaitGroup,
 	}
 	log.Printf("Get response: %s", r.GetMessage())
 	wg.Done()
+}
+
+func doSayAgain(ctx context.Context, c protoc.GreeterClient) {
+	r, err := c.SayHelloAgain(ctx, &protoc.HelloRequest{Name: fmt.Sprintf("again")})
+	if err != nil {
+		log.Fatalf("could not greet again %v", err)
+	}
+	log.Printf("Get response: %s", r.GetMessage())
 }
