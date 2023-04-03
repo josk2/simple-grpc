@@ -11,7 +11,7 @@ import (
 	"google.golang.org/grpc"
 )
 
-var port = flag.Int("port", 50051, "the server port")
+var port = flag.Int("port", 50055, "the server port")
 
 func main() {
 	flag.Parse()

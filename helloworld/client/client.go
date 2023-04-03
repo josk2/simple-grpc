@@ -17,7 +17,7 @@ import (
 const defaultName = "world"
 
 var (
-	addr = flag.String("addr", "localhost:50051", "the address to connect to")
+	addr = flag.String("addr", "localhost:50055", "the address to connect to")
 	name = flag.String("name", defaultName, "Name to greet")
 )
 
